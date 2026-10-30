@@ -1,45 +1,41 @@
 ---
-layout: home
-hero:
-  name: LLM 网络结构
-  text: 从零实现，逐层理解。
-  tagline: 从一个 Token 的预测开始，走过 Transformer、GQA 与 KV Cache，读懂真实模型，用可复现的实验检验每一次设计。
-  actions:
-    - theme: brand
-      text: 从第一章开始 →
-      link: /chapters/00-preparation
-    - theme: alt
-      text: 查看完整学习路线
-      link: /guide/
-features:
-  - title: 先理解，再实现
-    details: 用数学、张量形状和最小代码解释同一个计算过程，从单头注意力逐步组装自己的语言模型。
-    link: /chapters/02-attention
-    linkText: 阅读注意力章节
-  - title: 先验证，再比较
-    details: 检查因果性、标签对齐和缓存一致性，固定实验预算，区分能力、计算与内存效率。
-    link: /experiments
-    linkText: 查看实验规范
-  - title: 从小模型走向真实架构
-    details: 逐步理解现代 Block、MoE 与长上下文，再将配置、公式与 Qwen、DeepSeek 的实现对应起来。
-    link: /chapters/12-model-reading
-    linkText: 进入源码分析
+title: LLM 网络结构：原理、实现与实验
+outline: false
 ---
 
-## 一本可以边读边做的架构讲义
+# LLM 网络结构：原理、实现与实验
 
-本教程面向已有 PyTorch 或模型训练经验、希望系统理解语言模型结构的开发者。学习按先修关系与验收条件推进，不安排固定周数。
+这本书面向已有 Python 和模型训练经验、希望理解语言模型内部计算的读者。从下一个 Token 的预测开始，逐步实现一个小型 GPT，再研究现代 Transformer、推理缓存和架构实验。
 
-**当前版本：首版讲义。** 已提供完整章节路线、基础推导、关键代码与实验设计。尚未提供完整训练工程、预训练权重或实测性能排行榜；文中的实验任务需要读者执行，不能视为已复现结果。
+每章将公式、张量形状与可运行代码放在一起。配套实验使用内置的小数据和 CPU，先验证计算是否正确，再讨论结构的代价与适用范围。学习按先修关系推进，不设置周计划。
 
-| 阅读路径 | 章节 | 你将完成什么 |
-| --- | --- | --- |
-| 建立可信的基础 | [00—05](/chapters/00-preparation) | 理解训练目标，组装最小 GPT，建立固定数据与 Tokenizer 的训练基线 |
-| 理解现代架构 | [06—09](/chapters/06-modern-block) | 分析现代 Block，推导 GQA 与缓存预算，检验增量推理并测量性能 |
-| 走向架构实验 | [10—13](/chapters/10-long-context) | 研究长上下文与 MoE，分析真实模型，形成独立的架构实验报告 |
+[阅读指南](/guide/) · [安装与运行实验](/labs) · [GitHub](https://github.com/zhanghuiwan/llm-architecture-lab)
 
-## 如何判断自己学会了
+## 第一部分：基础模型
 
-每章围绕一个问题展开，给出必要概念、张量或公式、动手任务和验收标准。先完成正确性检查，再扩大模型和训练规模。没有硬件时，可以先完成数学推导与小张量验证；训练与性能实验按实际资源选择规模。
+- [00 必要准备](/chapters/00-preparation)：张量、广播、数值稳定与梯度。
+- [01 语言模型在学什么](/chapters/01-language-modeling)：预测目标、标签对齐与交叉熵。
+- [02 因果多头注意力](/chapters/02-attention)：从矩阵计算到因果性检查。
+- [03 组装最小 GPT](/chapters/03-minimal-gpt)：完整模型、训练与生成。
+- [04 可信训练基线](/chapters/04-training)：梯度累积、随机性与断点恢复。
+- [05 Tokenizer 与数据管线](/chapters/05-tokenization)：字节 BPE、文档边界与样本构造。
 
-阅读 [学习指南](/guide/) 了解先修关系，遇到术语时查阅 [术语表](/glossary)，开始比较结构前阅读 [统一实验规范](/experiments)。
+## 第二部分：现代结构与推理
+
+- [06 现代 Transformer Block](/chapters/06-modern-block)：RMSNorm、RoPE、SwiGLU 与权重绑定。
+- [07 MHA、MQA 与 GQA](/chapters/07-gqa)：头分组、参数与缓存预算。
+- [08 自回归推理与 KV Cache](/chapters/08-kv-cache)：完整前向与增量解码的一致性。
+- [09 性能测量与高效实现](/chapters/09-performance)：正确性、计时范围与测量误差。
+
+## 第三部分：架构实验
+
+- [10 长上下文实验](/chapters/10-long-context)：局部注意力、信息可达性与任务测试。
+- [11 MoE 入门](/chapters/11-moe)：路由、专家分派与容量限制。
+- [12 真实模型源码分析](/chapters/12-model-reading)：从配置追踪 Qwen 与 DeepSeek 的计算路径。
+- [13 独立架构实验](/chapters/13-research)：固定预算、配对种子与实验报告。
+
+## 阅读与参与
+
+本书不要求大模型训练集群，但需要理解梯度、优化器和训练／验证划分。微型实验用于理解局部机制，不能据此判断大模型能力或 GPU 性能。
+
+遇到术语可以查阅[术语表](/glossary)，开展对照前阅读[统一实验规范](/experiments)。勘误与补充请见[贡献说明](https://github.com/zhanghuiwan/llm-architecture-lab/blob/main/CONTRIBUTING.md)和[问题列表](https://github.com/zhanghuiwan/llm-architecture-lab/issues)。本书与实验以 MIT 许可开放，引用资料遵循各自许可。

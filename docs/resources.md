@@ -20,7 +20,7 @@
 
 - [PyTorch SDPA 教程](https://docs.pytorch.org/tutorials/intermediate/scaled_dot_product_attention_tutorial.html)。
 - [Megatron-LM](https://github.com/NVIDIA/Megatron-LM)：并行训练与系统实现的进阶阅读。
-- [《动手学深度学习》](https://zh.d2l.ai/)：参考其概念、代码、练习结合的教学方式。本教程为独立编写的首版讲义，未复制该书章节。
+- [《动手学深度学习》](https://zh.d2l.ai/)：参考其概念、代码、练习结合的教学方式。本教程为独立编写的教材，未复制该书章节。
 
 ## 引用与更新约定
 

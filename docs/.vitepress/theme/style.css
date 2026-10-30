@@ -1,42 +1,32 @@
 :root {
-  --vp-c-brand-1: #176b57;
-  --vp-c-brand-2: #228267;
-  --vp-c-brand-3: #176b57;
-  --vp-c-brand-soft: rgba(23, 107, 87, .1);
-  --vp-font-family-base: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --vp-home-hero-name-color: #176b57;
-  --vp-home-hero-name-background: none;
-  --vp-c-bg: #fffefa;
-  --vp-c-bg-alt: #f7f7f2;
-  --vp-c-bg-soft: #f4f5ef;
+  --vp-c-brand-1: #315f78;
+  --vp-c-brand-2: #42738c;
+  --vp-c-brand-3: #315f78;
+  --vp-c-brand-soft: rgba(49, 95, 120, .1);
+  --vp-font-family-base: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f7f8f9;
+  --vp-c-bg-soft: #f3f5f6;
 }
 .dark {
-  --vp-c-brand-1: #7bd9b8;
-  --vp-c-brand-2: #9fe8ce;
-  --vp-c-brand-3: #287b63;
-  --vp-home-hero-name-color: #7bd9b8;
-  --vp-c-bg: #191d1b;
-  --vp-c-bg-alt: #141815;
-  --vp-c-bg-soft: #222823;
+  --vp-c-brand-1: #9dc7dd;
+  --vp-c-brand-2: #beddeb;
+  --vp-c-brand-3: #527f99;
+  --vp-c-bg: #1b1d20;
+  --vp-c-bg-alt: #17191c;
+  --vp-c-bg-soft: #24272b;
 }
 .VPDoc .content-container { max-width: 760px !important; }
 .vp-doc { font-size: 16px; line-height: 1.9; }
-.vp-doc h1 { line-height: 1.4; letter-spacing: -.025em; }
-.vp-doc h2 { padding-top: 26px; }
+.vp-doc h1 { font-size: 30px; line-height: 1.5; letter-spacing: 0; }
+.vp-doc h2 { font-size: 23px; padding-top: 24px; }
+.vp-doc h3 { font-size: 19px; }
 .vp-doc p { line-height: 1.95; }
-.VPHomeHero .name, .VPHomeHero .text { max-width: 850px; font-weight: 650; }
-.VPHomeHero .text { font-size: 44px; line-height: 1.35; }
-.VPHomeHero .tagline { max-width: 740px; line-height: 1.9; font-size: 19px; }
-.VPHome { padding-bottom: 72px !important; }
-.VPHome .vp-doc { max-width: 1100px; margin: 56px auto 0; padding: 0 24px; }
-.VPFeature { border-radius: 12px !important; border-color: var(--vp-c-divider) !important; }
-.VPFeature .details { line-height: 1.85; }
 .vp-doc table { width: 100%; }
 .vp-doc th { white-space: nowrap; }
 .vp-doc mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; padding: .4em 0; }
 .vp-doc pre code { line-height: 1.8; }
 @media (max-width: 640px) {
-  .VPHomeHero .text { font-size: 31px; }
-  .VPHomeHero .tagline { font-size: 17px; }
-  .VPHome .vp-doc { margin-top: 32px; }
+  .vp-doc h1 { font-size: 25px; }
+  .vp-doc h2 { font-size: 21px; }
 }
