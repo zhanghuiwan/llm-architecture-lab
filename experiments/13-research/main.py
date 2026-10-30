@@ -154,7 +154,7 @@ def run(seed, quick):
             check(prefix + '_tied_weights', model.embedding.weight is model.head.weight)
             initial_train = evaluate(model, xtrain, ytrain)
             initial_valid = evaluate(model, xvalid, yvalid)
-            optimizer = torch.optim.AdamW(model.parameters(), lr=0.008, weight_decay=0.01)
+            optimizer = torch.optim.AdamW(model.parameters(), lr=0.008, weight_decay=0.01, betas=(0.9, 0.999), eps=1e-8)
             observed = []
             consumed_tokens = 0
             finite_gradients = True
@@ -210,7 +210,7 @@ def run(seed, quick):
                         'width': 32, 'query_heads': 4, 'kv_heads': [4, 2], 'layers': 1,
                         'context': length, 'batch_size': batch_size, 'steps_per_variant': steps,
                         'torch_version': torch.__version__,
-                        'optimizer': {'name': 'AdamW', 'lr': 0.008, 'weight_decay': 0.01, 'clip_norm': 1.0},
+                        'optimizer': {'name': 'AdamW', 'lr': 0.008, 'weight_decay': 0.01, 'betas': [0.9, 0.999], 'eps': 1e-8, 'clip_norm': 1.0},
                         'primary_budget': 'equal effective training tokens per variant',
                         'alphabet': ALPHABET, 'train_windows': len(xtrain), 'validation_windows': len(xvalid),
                         'train_sha256': digest([xtrain, ytrain]), 'validation_sha256': digest([xvalid, yvalid]),

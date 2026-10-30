@@ -24,7 +24,8 @@
 .vp-doc p { line-height: 1.95; }
 .vp-doc table { width: 100%; }
 .vp-doc th { white-space: nowrap; }
-.vp-doc mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; padding: .4em 0; }
+.vp-doc mjx-container { display: inline-block; overflow-x: auto; overflow-y: hidden; max-width: 100%; padding: .2em 0; }
+.vp-doc mjx-container[display="true"] { display: block; padding: .4em 0; }
 .vp-doc pre code { line-height: 1.8; }
 @media (max-width: 640px) {
   .vp-doc h1 { font-size: 25px; }
