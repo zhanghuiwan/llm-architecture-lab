@@ -4,7 +4,6 @@ import argparse
 import importlib.metadata
 import json
 import math
-import os
 from pathlib import Path
 import platform
 import subprocess
@@ -57,8 +56,8 @@ def main():
             checks = report['checks']
             if not isinstance(checks, dict) or not checks or not all(v is True for v in checks.values()):
                 raise ValueError(f'Failed or invalid checks: {checks}')
-            if report['seed'] != args.seed or not finite(report):
-                raise ValueError('Seed mismatch or non-finite numeric result')
+            if report['chapter'] != chapter or report['seed'] != args.seed or not finite(report):
+                raise ValueError('Chapter/seed mismatch or non-finite numeric result')
             item.update(passed=True, report=report)
             print(f'PASS {chapter}: {len(checks)} checks', file=sys.stderr)
         except (OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as exc:
